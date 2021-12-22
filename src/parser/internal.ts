@@ -64,7 +64,7 @@ function parseImage(image: md.Image, options: ParserOptions): notion.Block {
   ];
 
   function dealWithError() {
-    return notion.paragraph([notion.richText(image.url)]);
+    return notion.paragraph([notion.richText(image.url, {url: image.url})]);
   }
 
   try {
