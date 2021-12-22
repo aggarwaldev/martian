@@ -69,6 +69,18 @@ function parseImage(image: md.Image, options: ParserOptions): notion.Block {
   }
 
   try {
+    if (options.embedUrls && options.embedUrls.length) {
+      const re = new RegExp(
+        `^https?://(?:[^/@:]*:[^/@]*@)?(?:[^/:]+.)?(${options.embedUrls.join(
+          '|'
+        )})(?=[/:]|$)`,
+        'i'
+      );
+      if (re.test(image.url)) {
+        return notion.embed(image.url);
+      }
+    }
+
     if (options.strictImageUrls) {
       const parsedUrl = new URL(image.url);
       const fileType = path.extname(parsedUrl.pathname);
@@ -78,18 +90,6 @@ function parseImage(image: md.Image, options: ParserOptions): notion.Block {
         return dealWithError();
       }
     } else {
-      if (options.embedUrls && options.embedUrls.length) {
-        const re = new RegExp(
-          `^https?://(?:[^/@:]*:[^/@]*@)?(?:[^/:]+.)?(${options.embedUrls.join(
-            '|'
-          )})(?=[/:]|$)`,
-          'i'
-        );
-        if (re.test(image.url)) {
-          return notion.embed(image.url);
-        }
-      }
-
       return notion.image(image.url);
     }
   } catch (error: unknown) {
