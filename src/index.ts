@@ -6,6 +6,7 @@ import type * as md from './markdown';
 import gfm from 'remark-gfm';
 
 export interface ParserOptions {
+  embedUrls?: string[];
   allowUnsupportedObjectType?: boolean;
   strictImageUrls?: boolean;
 }

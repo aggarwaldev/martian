@@ -3,6 +3,7 @@ import * as notion from '../notion';
 import {ParserOptions} from '..';
 import path from 'path';
 import {URL} from 'url';
+import {embed} from '../notion';
 
 function ensureLength(text: string, copy?: object) {
   const chunks = text.match(/[^]{1,2000}/g) || [];
@@ -77,6 +78,18 @@ function parseImage(image: md.Image, options: ParserOptions): notion.Block {
         return dealWithError();
       }
     } else {
+      if (options.embedUrls && options.embedUrls.length) {
+        const re = new RegExp(
+          `^https?://(?:[^/@:]*:[^/@]*@)?(?:[^/:]+.)?(${options.embedUrls.join(
+            '|'
+          )})(?=[/:]|$)`,
+          'i'
+        );
+        if (re.test(image.url)) {
+          return notion.embed(image.url);
+        }
+      }
+
       return notion.image(image.url);
     }
   } catch (error: unknown) {

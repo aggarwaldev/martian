@@ -68,6 +68,16 @@ export function image(url: string): Block {
   } as Block;
 }
 
+export function embed(url: string): Block {
+  return {
+    object: 'block',
+    type: 'embed',
+    embed: {
+      url: url,
+    },
+  } as Block;
+}
+
 export function table_of_contents(): Block {
   return {
     object: 'block',
