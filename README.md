@@ -22,7 +22,8 @@ Designed to make using the Notion SDK and API easier.  Notion API version 0.4.5.
 * Block quotes
 * Images
   - Inline images are extracted from the paragraph and added afterwards (as these are not supported in notion)
-  - Image urls are validated, if they are not valid as per the Notion external spec, they will be inserted as text for you to fix manually 
+  - Image urls are validated, if they are not valid as per the Notion external spec, they will be inserted as text for you to fix manually
+  - Embed images are allowed on specific domains via options.embedUrls. These images are inserted as embed block.
 
 ## Usage
 
@@ -54,7 +55,7 @@ const richText: RichText[] = markdownToRichText(`**Hello _world_**`);
 //   }
 // ]
 
-const options = { allowUnsupportedObjectType: false, strictImageUrls: true };
+const options = { allowUnsupportedObjectType: false, strictImageUrls: true, embedUrls: ['googleusercontent.com'] };
 const blocks: Block[] = markdownToBlocks(`
 ## this is a _heading 2_
 
