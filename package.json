@@ -1,6 +1,6 @@
 {
   "name": "@aggarwaldev/martian",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Converts Markdown to Notion Blocks and RichText",
   "repository": "https://github.com/instantish/martian",
   "main": "build/src/index.js",
@@ -27,14 +27,14 @@
   "author": "Richard Robinson",
   "contributors": [
     {
-      "name" : "Clifton Cunningham",
-      "email" : "clifton.cunningham@gmail.com",
-      "url" : "https://medium.com/@clifcunn"
+      "name": "Clifton Cunningham",
+      "email": "clifton.cunningham@gmail.com",
+      "url": "https://medium.com/@clifcunn"
     },
     {
-      "name" : "Dev Aggarwal",
-      "email" : "contact@aggarwal.dev",
-      "url" : "https://aggarwal.dev"
+      "name": "Dev Aggarwal",
+      "email": "contact@aggarwal.dev",
+      "url": "https://aggarwal.dev"
     }
   ],
   "license": "ISC",
