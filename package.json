@@ -1,5 +1,5 @@
 {
-  "name": "@tryfabric/martian",
+  "name": "@aggarwaldev/martian",
   "version": "1.1.1",
   "description": "Converts Markdown to Notion Blocks and RichText",
   "repository": "https://github.com/instantish/martian",
@@ -25,6 +25,18 @@
     "node": ">=14"
   },
   "author": "Richard Robinson",
+  "contributors": [
+    {
+      "name" : "Clifton Cunningham",
+      "email" : "clifton.cunningham@gmail.com",
+      "url" : "https://medium.com/@clifcunn"
+    },
+    {
+      "name" : "Dev Aggarwal",
+      "email" : "contact@aggarwal.dev",
+      "url" : "https://aggarwal.dev"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "@notionhq/client": "^0.4.5",
